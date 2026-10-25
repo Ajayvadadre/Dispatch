@@ -10,7 +10,8 @@
     "samples": "tsx scripts/make-samples.ts",
     "db:generate": "drizzle-kit generate",
     "typecheck": "tsc --noEmit",
-    "setup": "node scripts/setup.mjs"
+    "setup": "node scripts/setup.mjs",
+    "clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\""
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.11",

@@ -39,6 +39,7 @@ The first start creates the database in `./data/` automatically. Nothing else ne
 | `npm install` hangs or fails behind the company proxy | `npm config set proxy http://proxy-host:port` and `npm config set https-proxy http://proxy-host:port` |
 | `npm install` fails with `SELF_SIGNED_CERT_IN_CHAIN` (company SSL inspection) | Ask IT for the company root certificate, then `npm config set cafile C:\path\company-root.pem` and set `NODE_EXTRA_CA_CERTS` to the same file |
 | Emails fail with `fetch failed` / timeouts on the office network | The network needs a proxy for outbound HTTPS. Start the app with the proxy set in the terminal (not in `.env`; Node reads these at startup, Node 22.21+ / 24): PowerShell `$env:HTTPS_PROXY="http://proxy-host:port"; $env:NODE_USE_ENV_PROXY="1"; npm run dev` |
+| Page keeps reloading by itself in a loop | Stale dev cache (happens after running `npm run build` while `npm run dev` is running). Stop the app, `npm run clean`, `npm run dev`, then reload the browser tab |
 | `Port 3000 is in use` | Another app uses it: `npm run dev -- -p 3005`, then open http://localhost:3005 |
 | PowerShell says "running scripts is disabled" for `npm` | Run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once, or use Command Prompt |
 

@@ -27,7 +27,7 @@ Admin tool that emails an article PDF to a list of doctors (200–300) on a sche
 
 ## Verifying changes
 
-`npm run typecheck`, `npx eslint .`, `npm run build`. End to end: `EMAIL_PROVIDER=console`, import `sample/doctors-sample.xlsx`, create an article with `sample/sample-article.pdf` using the "In 2 minutes" quick pick, watch it in Activity. Addresses ending in `.invalid` fail on purpose (to exercise retry). `GET /api/health` reports database + scheduler status.
+`npm run typecheck`, `npx eslint .`, `npm run build`. Stop the dev server before `npm run build` / `next typegen`: running them alongside `next dev` corrupts the Turbopack dev cache and the browser falls into an endless "[Fast Refresh] rebuilding" reload loop (fix: stop, `npm run clean`, restart). End to end: `EMAIL_PROVIDER=console`, import `sample/doctors-sample.xlsx`, create an article with `sample/sample-article.pdf` using the "In 2 minutes" quick pick, watch it in Activity. Addresses ending in `.invalid` fail on purpose (to exercise retry). `GET /api/health` reports database + scheduler status.
 
 ## Open items
 
