@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // These packages touch the filesystem / WASM at runtime, so let Node load them directly.
+  serverExternalPackages: ["@electric-sql/pglite", "pg", "exceljs", "nodemailer"],
+  devIndicators: false,
   turbopack: {
     rules: {
       "*.css": {
